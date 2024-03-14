@@ -39,11 +39,11 @@ def main():
         new_image = add_background(image_path)
         
         # Save the new image with a background in the output directory
-        output_path = os.path.join(output_directory, f'bg_{image_file}')
+        output_path = os.path.join(output_directory, f'{image_file}')
         new_image.save(output_path)
 
         # Save a compressed JPEG image in the jpg directory
-        jpg_output_path = os.path.join(jpg_directory, f'compressed_{image_file[:-4]}.jpg')
+        jpg_output_path = os.path.join(jpg_directory, f'{image_file[:-4]}.jpg')
         new_image.save(jpg_output_path, format='JPEG', quality=70)  # Adjust quality as needed
         
         # Show the progress
