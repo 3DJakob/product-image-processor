@@ -27,7 +27,7 @@ def main():
     files = os.listdir(current_directory)
     
     # Filter out only image files
-    image_files = [file for file in files if file.endswith(('png', 'jpg', 'jpeg', 'gif'))]
+    image_files = [file for file in files if file.endswith(('.png', '.jpg', '.jpeg', '.gif'))]
     
     # Process each image file
     total_images = len(image_files)
