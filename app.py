@@ -17,6 +17,11 @@ def main():
     output_directory = os.path.join(current_directory, "output")
     if not os.path.exists(output_directory):
         os.makedirs(output_directory)
+
+    # Create a jpg directory if it doesn't exist
+    jpg_directory = os.path.join(current_directory, "jpg")
+    if not os.path.exists(jpg_directory):
+        os.makedirs(jpg_directory)
     
     # List all files in the current directory
     files = os.listdir(current_directory)
@@ -36,6 +41,10 @@ def main():
         # Save the new image with a background in the output directory
         output_path = os.path.join(output_directory, f'bg_{image_file}')
         new_image.save(output_path)
+
+        # Save a compressed JPEG image in the jpg directory
+        jpg_output_path = os.path.join(jpg_directory, f'compressed_{image_file[:-4]}.jpg')
+        new_image.save(jpg_output_path, format='JPEG', quality=70)  # Adjust quality as needed
         
         # Show the progress
         print(f"Exporting image {i}/{total_images}", end='\r', flush=True)
